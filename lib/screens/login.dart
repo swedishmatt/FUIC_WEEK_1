@@ -26,9 +26,9 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                FadeAnimation(
-                  0.4,
-                  Container(
+                FadeLeftAnimation(
+                  delay: 0.4,
+                  child: Container(
                     width: double.infinity,
                     margin: EdgeInsets.only(
                       top: 40,
@@ -59,68 +59,65 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                FadeAnimation(
-                  0.5,
-                  Column(
-                    children: <Widget>[
-                      Container(
-                        width: double.infinity,
-                        height: screenHeight * 0.70,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: topBorderRadius,
-                            topRight: topBorderRadius,
-                          ),
-                          color: Colors.white,
+                Column(
+                  children: <Widget>[
+                    Container(
+                      width: double.infinity,
+                      height: screenHeight * 0.70,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: topBorderRadius,
+                          topRight: topBorderRadius,
                         ),
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(
-                              height: screenHeight * 0.10,
-                            ),
-                            FadeAnimation(
-                              0.6,
-                              _textFields(screenWidth: screenWidth),
-                            ),
-                            SizedBox(
-                              height: 30,
-                            ),
-                            FadeAnimation(
-                              0.7,
-                              _forgotPassword(),
-                            ),
-                            SizedBox(
-                              height: 30,
-                            ),
-                            FadeAnimation(
-                              0.8,
-                              _loginButton(screenWidth: screenWidth),
-                            ),
-                            SizedBox(
-                              height: 30,
-                            ),
-                            FadeAnimation(
-                              0.9,
-                              Text(
-                                "Continue with social media",
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 15,
-                                ),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(
+                            height: screenHeight * 0.10,
+                          ),
+                          FadeLeftAnimation(
+                            delay: 0.6,
+                            child: _textFields(screenWidth: screenWidth),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          FadeLeftAnimation(
+                            delay: 0.7,
+                            child: _forgotPassword(),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          FadeLeftAnimation(
+                            delay: 0.8,
+                            child: _loginButton(screenWidth: screenWidth),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          FadeLeftAnimation(
+                            delay: 0.9,
+                            child: Text(
+                              "Continue with social media",
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 15,
                               ),
                             ),
-                            SizedBox(
-                              height: 30,
-                            ),
-                            FadeAnimation(
-                              1.0,
-                              _socialMediaBtns(),
-                            ),
-                          ],
-                        ),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          FadeLeftAnimation(
+                            delay: 1.0,
+                            child: _socialMediaBtns(),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -188,13 +185,18 @@ class _LoginPageState extends State<LoginPage> {
   Widget _loginButton({@required double screenWidth}) {
     return SimpleRoundedButton(
       onPressed: () {
-        final email = emailController.text;
-        final password =
-            passwordController.text.substring(0, 1) + "****************";
+        if (emailController.text.isNotEmpty &&
+            passwordController.text.isNotEmpty) {
+          final email = emailController.text;
+          final password =
+              passwordController.text.substring(0, 1) + "****************";
 
-        print("Signing in...");
-        print("Email/Phone: $email");
-        print("Password: $password");
+          print("Signing in...");
+          print("Email/Phone: $email");
+          print("Password: $password");
+        } else {
+          print("One of the fields is empty!");
+        }
       },
       text: "Login",
       width: screenWidth * 0.6,
