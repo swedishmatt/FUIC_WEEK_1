@@ -2,7 +2,7 @@
 
 A new Flutter application.
 
-![Settings Window](https://raw.github.com/swedismatt/FUIC_WEEK_1/master/Screenshot_UI.png)
+![Settings Window](https://github.com/swedishmatt/FUIC_WEEK_1/blob/master/Screenshot_UI.png)
 
 ## Getting Started
 
