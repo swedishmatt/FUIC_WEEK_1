@@ -2,6 +2,8 @@
 
 A new Flutter application.
 
+![Settings Window](https://raw.github.com/swedismatt/FUIC_WEEK_1/master/Screenshot_UI.png)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
