@@ -26,8 +26,8 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                FadeLeftAnimation(
-                  delay: 0.4,
+                FadeAnimation(
+                  delay: 0.5,
                   child: Container(
                     width: double.infinity,
                     margin: EdgeInsets.only(
@@ -59,65 +59,53 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                Column(
-                  children: <Widget>[
-                    Container(
-                      width: double.infinity,
-                      height: screenHeight * 0.70,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: topBorderRadius,
-                          topRight: topBorderRadius,
+                FadeAnimation(
+                  delay: 2.0,
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        width: double.infinity,
+                        height: screenHeight * 0.70,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: topBorderRadius,
+                            topRight: topBorderRadius,
+                          ),
+                          color: Colors.white,
                         ),
-                        color: Colors.white,
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(
-                            height: screenHeight * 0.10,
-                          ),
-                          FadeLeftAnimation(
-                            delay: 0.6,
-                            child: _textFields(screenWidth: screenWidth),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          FadeLeftAnimation(
-                            delay: 0.7,
-                            child: _forgotPassword(),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          FadeLeftAnimation(
-                            delay: 0.8,
-                            child: _loginButton(screenWidth: screenWidth),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          FadeLeftAnimation(
-                            delay: 0.9,
-                            child: Text(
+                        child: Column(
+                          children: <Widget>[
+                            SizedBox(
+                              height: screenHeight * 0.10,
+                            ),
+                            _textFields(screenWidth: screenWidth),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            _forgotPassword(),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            _loginButton(screenWidth: screenWidth),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Text(
                               "Continue with social media",
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 15,
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          FadeLeftAnimation(
-                            delay: 1.0,
-                            child: _socialMediaBtns(),
-                          ),
-                        ],
+                            SizedBox(
+                              height: 30,
+                            ),
+                            _socialMediaBtns(),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
